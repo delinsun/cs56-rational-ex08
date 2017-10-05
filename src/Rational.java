@@ -75,11 +75,33 @@ public class Rational {
 
     public static Rational sum(Rational a, Rational b){
 	int denm = lcm(a.denom,b.denom);
-	int nm = a.num * denm / b.denom + b.num * denm / a.denom;
+	int nm = a.num * denm / a.denom + b.num * denm / b.denom;
     	return new Rational(nm, denm);
     }
 
+    public Rational minus(Rational r){
+	Rational temp = new Rational(-1,1);
+	return plus(r.times(temp));
+    }
 
+    public static Rational difference(Rational a, Rational b){
+    	Rational temp = new Rational(-1,1);
+	return sum(a, b.times(temp));
+    }
+
+    public Rational reciprocalOf(){
+	if (num == 0)
+		throw new ArithmeticException("denominator may not be zero");
+    	return new Rational(this.denom, this.num);
+    }
+
+    public Rational dividedBy(Rational r){
+    	return times(r.reciprocalOf());
+    }
+
+    public static Rational quotient(Rational a, Rational b){
+    	return product(a, b.reciprocalOf());
+    }
 
     /** 
 	For testing getters.  
