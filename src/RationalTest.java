@@ -160,5 +160,25 @@ public class RationalTest {
 	assertEquals("1",r.toString());
     }
  
-    
+    @Test
+    public void test_lcm_of_r_5_15() {
+    	assertEquals(15, Rational.lcm(5,15));
+    }
+
+    @Test
+    public void test_lcm_of_r_3_7() {
+        assertEquals(21, Rational.lcm(3,7));
+    }
+
+    @Test
+    public void test_lcm_of_1_23() {
+        assertEquals(23, Rational.lcm(1,23));
+    }
+
+    @Test
+    public void test_plus_of_r_5_15() {
+        assertEquals("30", lcm(r_5_15,r_24_6));
+    }
+
+
 }
