@@ -67,8 +67,9 @@ public class Rational {
     }
 
     public Rational plus(Rational r){
+	int temp = this.denom;
     	this.denom = lcm(this.denom, r.denom);
-	this.num = this.num * this.denom/r.denom + r.num * this.denom/this.num;
+	this.num = this.num * this.denom/temp + r.num * this.denom/r.denom;
 	return new Rational(this.num, this.denom);
     }
 
