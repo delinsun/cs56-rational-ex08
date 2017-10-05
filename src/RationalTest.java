@@ -177,8 +177,23 @@ public class RationalTest {
 
     @Test
     public void test_plus_of_r_5_15() {
-        assertEquals("30", lcm(r_5_15,r_24_6));
+	Rational r_1_1 = new Rational(1,1);
+	Rational r = r_1_1.plus(r_5_15);
+        assertEquals("4/3", r.toString());
     }
 
+    @Test
+    public void test_plus_of_r_3_7() {
+        Rational r_1_5 = new Rational(1,5);
+        Rational r = r_1_5.plus(r_3_7);
+        assertEquals("22/35", r.toString());
+    }
 
+    @Test
+    public void test_plus_of_r_25_20() {
+        Rational r = r_3_7.plus(r_5_15);
+        assertEquals("16/21", r.toString());
+    }
+
+ 
 }
