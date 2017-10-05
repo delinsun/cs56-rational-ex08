@@ -62,7 +62,24 @@ public class Rational {
 			    a.denom * b.denom);
     }
 
-    
+    public static int lcm(int a, int b){
+    	return Math.abs(a*b)/gcd(a, b);
+    }
+
+    public Rational plus(Rational r){
+    	this.denom = lcm(this.denom, r.denom);
+	this.num = this.num * this.denom/r.denom + r.num * this.denom/this.num;
+	return new Rational(this.num, this.denom);
+    }
+
+    public static Rational sum(Rational a, Rational b){
+	int denm = lcm(a.denom,b.denom);
+	int nm = a.num * denm / b.denom + b.num * denm / a.denom;
+    	return new Rational(nm, denm);
+    }
+
+
+
     /** 
 	For testing getters.  
 	@param args unused
